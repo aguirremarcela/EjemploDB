@@ -12,47 +12,34 @@ namespace EjercicioC_
     {
         static void Main(string[] args)
         {
-           PersonsDB db = new PersonsDB();
+            /*CreatePersons createPersons = new CreatePersons();
+            DateTime created = DateTime.Now;
+            DateTime updated = new DateTime(2023, 1, 1, 10, 30, 0);
+            Persons personas = new Persons("Juan O", null, updated, created);
+            createPersons.Add(personas);*/
+
+            
+           /* DeletePersona d = new DeletePersona();
+            d.Delete(2);*/
+
 
             //Traer todas las Persons 
 
-            /* var persons = db.getAll();
+            /*ReadPersons readPersons = new ReadPersons();
+            var persons=readPersons.GetAll();
+            
              foreach ( var p in persons ) {
                  Console.WriteLine("Id: "+ p.Id+ " Name: "+p.Name );
             }*/
 
-            //Para agregar una Persons a la base de datos debemos pasarle
-            // name, deleted, created  y updated
+            //Modificar una persona
 
-            /*DateTime created = DateTime.Now;
-              DateTime updated = new DateTime(2023, 1, 1, 10, 30, 0);
-              Persons personas = new Persons("Felipe",null,updated,created);
-              db.Add(personas);*/
-
-            //Modificar actualizar una persona 
-
-            /*
-             DateTime created = DateTime.Now;
-              DateTime updated = new DateTime(2023, 1, 1, 10, 30, 35);
-              Persons p1 = new Persons("Juan",null,updated,created);
-              db.Update(p1, 1);
-            */
-
-            //Eliminar una persona, se debe pasar como parametro su id
-
-            /*db.Delete(1);
-             */
-            
-
-
-
-           
-          
+            /*UpdatePersons updatePersons = new UpdatePersons();
+            DateTime created = DateTime.Now;
+            DateTime updated = new DateTime(2023, 1, 1, 10, 30, 35);
+            Persons p1 = new Persons("Felipe", null, updated, created);
+            updatePersons.Update(p1, 5);*/
 
         }
-
-
-
-
     }
 }

@@ -55,10 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CreatePersons.cs" />
+    <Compile Include="Models\DataBaseConnection.cs" />
+    <Compile Include="Models\DeletePersona.cs" />
     <Compile Include="Models\IDataAccess.cs" />
+    <Compile Include="Models\LastIdPersons.cs" />
     <Compile Include="Models\Persons.cs" />
-    <Compile Include="Models\PersonsDB.cs" />
+    <Compile Include="Models\ReadPersons.cs" />
+    <Compile Include="Models\receipts.cs" />
     <Compile Include="Models\Registros.cs" />
+    <Compile Include="Models\UpdatePersons.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
