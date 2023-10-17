@@ -8,7 +8,7 @@ namespace EjercicioC_.Models
 {
     public class DataBaseConnection
     {
-
+        
         private static String connectionString = "Data Source= DESKTOP-BQRSV0H; Initial Catalog= ejemploDB;" +
           " user= sa; password= Antonieta12";
         private DataBaseConnection() { }

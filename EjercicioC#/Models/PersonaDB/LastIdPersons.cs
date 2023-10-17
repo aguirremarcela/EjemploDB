@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EjercicioC_.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioC_.Models
 {
-     class LastIdPersons
+     class LastIdPersons :ILastId
     {
         static readonly String connection1 = DataBaseConnection.getConnection();
         public int LastId()

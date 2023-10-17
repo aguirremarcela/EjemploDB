@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EjercicioC_.Models.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioC_.Models
 {
-    class CreatePersons
+    class CreatePersons: ICreate<Persons>
     {
 
         static readonly String connection = DataBaseConnection.getConnection();
@@ -18,7 +19,7 @@ namespace EjercicioC_.Models
             
         }
 
-        public void Add(Persons p) 
+        public void add(Persons p) 
         {
             
             
@@ -36,16 +37,21 @@ namespace EjercicioC_.Models
                     sqlCommand.Parameters.AddWithValue("@created", p.Created);
                     sqlCommand.Parameters.AddWithValue("@updated", p.Updated);
                     connection1.Open();
-                    sqlCommand.ExecuteNonQuery();// hacemos la insercion
+                    int row =sqlCommand.ExecuteNonQuery();// hacemos la insercion
+                    if(row > 0)
+                    {
+                        
+                        ManejoSqlCod.GetMessage(1);
+                    }
                     connection1.Close();
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    int cod = ex.HResult;
-
+                    ManejoSqlCod.GetMessage(ex.HResult);
                 }
+               
 
-            }
+        }
         }
     }
 }
