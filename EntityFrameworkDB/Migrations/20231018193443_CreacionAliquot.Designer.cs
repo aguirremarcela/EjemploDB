@@ -4,6 +4,7 @@ using EntityFrameworkDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkDB.Migrations
 {
     [DbContext(typeof(DataDBContext))]
-    partial class DataDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231018193443_CreacionAliquot")]
+    partial class CreacionAliquot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +45,7 @@ namespace EntityFrameworkDB.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("Percentaje")
-                        .HasPrecision(9, 4)
-                        .HasColumnType("decimal(9,4)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
@@ -82,16 +84,16 @@ namespace EntityFrameworkDB.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 10, 18, 17, 29, 12, 920, DateTimeKind.Local).AddTicks(9922),
+                            Created = new DateTime(2023, 10, 18, 16, 34, 43, 547, DateTimeKind.Local).AddTicks(9865),
                             Name = "Felipe",
-                            Updated = new DateTime(2023, 10, 18, 17, 29, 12, 920, DateTimeKind.Local).AddTicks(9931)
+                            Updated = new DateTime(2023, 10, 18, 16, 34, 43, 547, DateTimeKind.Local).AddTicks(9877)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2023, 10, 18, 17, 29, 12, 920, DateTimeKind.Local).AddTicks(9934),
+                            Created = new DateTime(2023, 10, 18, 16, 34, 43, 547, DateTimeKind.Local).AddTicks(9879),
                             Name = "Carlos",
-                            Updated = new DateTime(2023, 10, 18, 17, 29, 12, 920, DateTimeKind.Local).AddTicks(9934)
+                            Updated = new DateTime(2023, 10, 18, 16, 34, 43, 547, DateTimeKind.Local).AddTicks(9879)
                         });
                 });
 

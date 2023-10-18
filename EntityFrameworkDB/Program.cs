@@ -21,6 +21,14 @@ r.Deleted = null;
 r.Created = DateTime.Now;
 r.Updated = DateTime.Now;
 prRepository.Insert(r);
+Aliquots a= new Aliquots();
+a.Name = "IVA";
+a.Deleted = null;
+a.Created = DateTime.Now;
+a.Updated = DateTime.Now;
+a.Percentaje = 0.21M;
+AliquotsRepository ar = new AliquotsRepository(ob);
+ar.Insert(a);
 
 Console.WriteLine("********Bienvenidos********");
 

@@ -14,10 +14,10 @@ namespace EntityFrameworkDB.Data.Models
         public TId Id { get; set; }
         public DateTime? Deleted {  get; set; }
         
-        [Required(ErrorMessage ="Seleccione la fecha de creacion")]
-        [DataType(DataType.DateTime, ErrorMessage ="Seleccione una fecha valida")]
+        [Required(ErrorMessage ="Seleccione la fecha de creación")]
+        [DataType(DataType.DateTime, ErrorMessage ="Seleccione una fecha válida")]
         public DateTime Created {  get; set; }
-        [Required(ErrorMessage = "Seleccione la fecha de actualizacion")]
+        [Required(ErrorMessage = "Seleccione la fecha de actualización")]
         [DataType(DataType.DateTime)]
         public DateTime Updated { get; set; }
     }
