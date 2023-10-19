@@ -15,13 +15,16 @@ namespace EntityFrameworkDB.Data
        
         DbSet<Persons> Persons { get; set; }
         DbSet<Receipts> Receipts { get; set; }
-
+        DbSet<Receipts_Detalles> receipts_Detalles { get; set; }
+        DbSet<Product> products { get; set; }
         DbSet<Aliquots> Aliquots { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //aca puedo ingresar el nombre con que quiero crear las tablas y en la tabla Aliquots le di precision
             modelBuilder.Entity<Persons>().ToTable("Person");
             modelBuilder.Entity<Receipts>().ToTable("Receipt");
+            modelBuilder.Entity<Receipts_Detalles>().ToTable("Receipt_Details");
+            modelBuilder.Entity<Product>().ToTable("Product").Property(a=>a.Price).HasPrecision(18,4);
             modelBuilder.Entity<Aliquots>().ToTable("Aliquot").Property(b => b.Percentaje).HasPrecision(9,4);
             // aca se puede agregar datos iniciales 
             modelBuilder.ApplyConfiguration(new PersonsSeed());
