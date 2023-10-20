@@ -13,7 +13,7 @@ namespace EntityFrameworkDB.Data.Models
         [MaxLength (10,ErrorMessage ="Escriba un máximo de 10 caracteres")]
         public string? Name { get; set; }
 
-        public virtual ICollection<Receipts> Receipts { get; set; }
+        public virtual List<Receipts> Receipts { get; set; }
 
     }
 }

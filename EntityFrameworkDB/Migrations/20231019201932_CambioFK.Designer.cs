@@ -4,6 +4,7 @@ using EntityFrameworkDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkDB.Migrations
 {
     [DbContext(typeof(DataDBContext))]
-    partial class DataDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231019201932_CambioFK")]
+    partial class CambioFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,16 +85,16 @@ namespace EntityFrameworkDB.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7761),
+                            Created = new DateTime(2023, 10, 19, 17, 19, 32, 239, DateTimeKind.Local).AddTicks(5132),
                             Name = "Felipe",
-                            Updated = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7779)
+                            Updated = new DateTime(2023, 10, 19, 17, 19, 32, 239, DateTimeKind.Local).AddTicks(5147)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7782),
+                            Created = new DateTime(2023, 10, 19, 17, 19, 32, 239, DateTimeKind.Local).AddTicks(5150),
                             Name = "Carlos",
-                            Updated = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7782)
+                            Updated = new DateTime(2023, 10, 19, 17, 19, 32, 239, DateTimeKind.Local).AddTicks(5150)
                         });
                 });
 
@@ -198,10 +201,9 @@ namespace EntityFrameworkDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdReceipt");
+                    b.HasIndex("IdProduct");
 
-                    b.HasIndex("IdProduct", "IdReceipt")
-                        .IsUnique();
+                    b.HasIndex("IdReceipt");
 
                     b.ToTable("Receipt_Details", (string)null);
                 });
@@ -209,7 +211,7 @@ namespace EntityFrameworkDB.Migrations
             modelBuilder.Entity("EntityFrameworkDB.Data.Models.Product", b =>
                 {
                     b.HasOne("EntityFrameworkDB.Data.Models.Aliquots", "Aliquots")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("Id_Aliquot")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -231,13 +233,13 @@ namespace EntityFrameworkDB.Migrations
             modelBuilder.Entity("EntityFrameworkDB.Data.Models.Receipts_Detalles", b =>
                 {
                     b.HasOne("EntityFrameworkDB.Data.Models.Product", "Product")
-                        .WithMany("Receipts")
+                        .WithMany()
                         .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EntityFrameworkDB.Data.Models.Receipts", "Receipts")
-                        .WithMany("Detalles")
+                        .WithMany()
                         .HasForeignKey("IdReceipt")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -247,24 +249,9 @@ namespace EntityFrameworkDB.Migrations
                     b.Navigation("Receipts");
                 });
 
-            modelBuilder.Entity("EntityFrameworkDB.Data.Models.Aliquots", b =>
-                {
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("EntityFrameworkDB.Data.Models.Persons", b =>
                 {
                     b.Navigation("Receipts");
-                });
-
-            modelBuilder.Entity("EntityFrameworkDB.Data.Models.Product", b =>
-                {
-                    b.Navigation("Receipts");
-                });
-
-            modelBuilder.Entity("EntityFrameworkDB.Data.Models.Receipts", b =>
-                {
-                    b.Navigation("Detalles");
                 });
 #pragma warning restore 612, 618
         }

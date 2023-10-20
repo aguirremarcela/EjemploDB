@@ -15,7 +15,15 @@ namespace EntityFrameworkDB.Data.Models
         [MaxLength(10)]
         public string? Total { get; set; }
 
-        [ForeignKey("IdCustomer")]
-        public virtual Persons Persona { get; set; }//tiene que ser vitual para que no sea un campo de la tabla
+        [ForeignKey("IdCustomer")]// un recibo pertenece a una persona
+        
+       public virtual Persons Persona { get; set; }//tiene que ser vitual para que no sea un campo de la tabla
+        public virtual List<Receipts_Detalles> Detalles { get; set;}
+
+        public Receipts()
+        {
+            Detalles= new List<Receipts_Detalles>();
+        }
+    
     }
 }

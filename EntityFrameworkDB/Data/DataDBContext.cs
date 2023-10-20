@@ -23,7 +23,7 @@ namespace EntityFrameworkDB.Data
             //aca puedo ingresar el nombre con que quiero crear las tablas y en la tabla Aliquots le di precision
             modelBuilder.Entity<Persons>().ToTable("Person");
             modelBuilder.Entity<Receipts>().ToTable("Receipt");
-            modelBuilder.Entity<Receipts_Detalles>().ToTable("Receipt_Details");
+            modelBuilder.Entity<Receipts_Detalles>().ToTable("Receipt_Details").HasIndex(e=> new {e.IdProduct,e.IdReceipt }).IsUnique();
             modelBuilder.Entity<Product>().ToTable("Product").Property(a=>a.Price).HasPrecision(18,4);
             modelBuilder.Entity<Aliquots>().ToTable("Aliquot").Property(b => b.Percentaje).HasPrecision(9,4);
             // aca se puede agregar datos iniciales 

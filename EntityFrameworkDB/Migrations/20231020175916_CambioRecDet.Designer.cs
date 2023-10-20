@@ -4,6 +4,7 @@ using EntityFrameworkDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkDB.Migrations
 {
     [DbContext(typeof(DataDBContext))]
-    partial class DataDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231020175916_CambioRecDet")]
+    partial class CambioRecDet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,16 +85,16 @@ namespace EntityFrameworkDB.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7761),
+                            Created = new DateTime(2023, 10, 20, 14, 59, 16, 771, DateTimeKind.Local).AddTicks(2038),
                             Name = "Felipe",
-                            Updated = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7779)
+                            Updated = new DateTime(2023, 10, 20, 14, 59, 16, 771, DateTimeKind.Local).AddTicks(2064)
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7782),
+                            Created = new DateTime(2023, 10, 20, 14, 59, 16, 771, DateTimeKind.Local).AddTicks(2066),
                             Name = "Carlos",
-                            Updated = new DateTime(2023, 10, 20, 15, 43, 52, 534, DateTimeKind.Local).AddTicks(7782)
+                            Updated = new DateTime(2023, 10, 20, 14, 59, 16, 771, DateTimeKind.Local).AddTicks(2067)
                         });
                 });
 
@@ -198,10 +201,9 @@ namespace EntityFrameworkDB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdReceipt");
+                    b.HasIndex("IdProduct");
 
-                    b.HasIndex("IdProduct", "IdReceipt")
-                        .IsUnique();
+                    b.HasIndex("IdReceipt");
 
                     b.ToTable("Receipt_Details", (string)null);
                 });

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +17,8 @@ namespace EntityFrameworkDB.Data.Models
         public int IdProduct { get; set; }
         public double Unitprice {  get; set; }
         public double Quantity { get; set; }
-        [ForeignKey("IdReceipts")]
+      
+        [ForeignKey("IdReceipt")]
         public virtual Receipts Receipts { get; set; }
          
         [ForeignKey("IdProduct")]

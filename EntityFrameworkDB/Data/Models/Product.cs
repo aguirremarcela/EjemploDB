@@ -18,5 +18,11 @@ namespace EntityFrameworkDB.Data.Models
         
         [ForeignKey("Id_Aliquot")]
         public virtual Aliquots Aliquots { get; set; }
+
+        public virtual List<Receipts_Detalles> Receipts { get; set; }
+
+        public Product() {
+            Receipts = new List<Receipts_Detalles>();
+        }
     }
 }

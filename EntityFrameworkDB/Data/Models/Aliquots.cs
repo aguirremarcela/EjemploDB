@@ -18,5 +18,6 @@ namespace EntityFrameworkDB.Data.Models
         [DisplayName("Porcentaje %")]
         [Range(0,100)]
         public decimal Percentaje {  get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
